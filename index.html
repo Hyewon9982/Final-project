@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div class="scrolled-indicator">
+      <div class="scrolled-indicator-fill">
+      </div>
+    </div>
+    <button id="btnScrollToTop"><i class="fas fa-arrow-up"></i></button>
+  
+    <header>
+      <div class="container">
+          <div class="logo"><img src="image/Oreo-Logo.png" height="108px" alt="logo">
+  
+          <nav class="navi">
+              <ul>
+                <li>Brand </li>
+                <li>New </li>
+                <li>Popup Store </li>
+                <li>Shop</li>
+              </ul>
+            </nav>
+          </div>
+      </div>
+    </header>
+  
+    <div id="main">
+      <div id="content-main">
+          <img class="image1" src="image/Image1.png" alt="Image1"/>
+          <div id="sub">Global No.1 Biscuit</div>
+          <div id="subcontent">111th <br> OREO PARTY</div>
+      </div>
+    </div>
+
+
+    <div id="content">
+        <div class="text1">POPUP STORE</div>
+        <div class="text2">오레오의 111번째 생일 파티에 초대합니다.</div>
+        <div class="slideshow-container">
+            <div class="slidesbackground">
+            <div class="mySlides fade">
+            <img class="image2" src="image/Image2.png" alt="Image2"/>
+            </div>
+            <div class="mySlides fade">
+            <img class="image3" src="image/Image3.png" alt="Image3"/>
+            </div>        
+            <div class="mySlides fade">
+            <img class="image4" src="image/Image4.png" alt="Image4"/>
+            </div>      
+            <div class="mySlides fade">
+            <img class="image5" src="image/Image5.png" alt="Image5"/>
+            </div>          
+            <div class="mySlides fade">
+            <img class="image6" src="image/Image6.png" alt="Image6"/>
+            </div>   
+            <div class="mySlides fade">
+            <img class="image7" src="image/Image7.png" alt="Image7"/>
+            </div>
+            </div>
+        </div>
+
+        <div class="text1">Brand</div>
+        <div class="text2">111년간 오레오는 이렇게 변화하였어요.</div>
+        <div class="oreotext">
+        <div class="text3">전세계인들에게 가장 사랑받는 쿠키 오레오</div>
+        <div class="text4">1913년 Nabisco사의 상표로 등록되어 오늘날 전세계 100개가 넘는 국가에서 판매되고 있는 오레오. 두 개의 단단하고 바삭한 초콜릿 쿠키와 부드럽고 달콤한 크림을 우유에 퐁당 찍어 먹으면 더욱 풍부하고 기분 좋은 맛을 경험하실 수 있습니다.동서식품에서 생산하여 품질과 안전성이 더욱 높아진 오레오와 함께 즐거운 순간을 나누세요.</div>
+        </div>
+        <img class="image8" src="image/Image8.png" alt="Image8"/>
+    </div>
+
+    <footer><div class=footer>SM Entertainment 83-21, Wangsimni-ro, Seongdong-gu, Seoul, Republic of Korea TEL. 02-6240-9800 Jang Chul Hyuk
+      <br>Copyright © 2016 SM Entertainment. All Rights Reserved.</div>
+      <div id="footer-con">
+      <br><br><br>
+      개인정보처리방침 | 이메일무단수집거부 | 브라우저안내
+      </div>
+    </footer>
+
+
+
+      <script>
+        // 스크롤 진행도 바(스크롤 인디케이터)와 탑으로 한번에 올라가는 버튼(스크롤투탑)
+          const scrolledIndicatorFill = document.querySelector(".scrolled-indicator-fill");
+          const btnScrollToTop = document.querySelector("#btnScrollToTop");
+
+        // 스크롤 양에 비례하여 진행도 바 컬러 지정
+  
+          window.addEventListener("scroll", () => {
+          const scrollable = document.documentElement.scrollHeight - window.innerHeight; 
+          const scroll = window.scrollY;
+          let percentageScrolled = 100;
+          if (scrollable > 0) {
+              percentageScrolled = Math.ceil((scroll / scrollable) * 100);
+          }
+
+        // 스크롤투탑 버튼 클릭시 top: 0 left 0 위치로 이동, 부드럽게 
+  
+          scrolledIndicatorFill.style.width = `${percentageScrolled}%`;});
+          btnScrollToTop.addEventListener("click", function () {
+          window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth"
+          });
+      });
+
+        // 스크롤에 맞춰서 이미지1 페이드인(오퍼시티 0에서 1로), 이동(left 1200에서 800으로)
+        $(document).ready(function() {
+        $(window).scroll(function(){
+            $('.image1').each(function(i){
+                var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                if( bottom_of_window > bottom_of_object/2 ){
+                    $(this).animate({'opacity':'1'},800);
+                }
+                if( bottom_of_window > bottom_of_object/2){
+                    $(this).animate({'left':'800'},1000);
+                }
+            }); 
+        });
+    });
+
+        // 스크롤에 맞춰서 텍스트(#sub) 페이드인(오퍼시티 0에서 1로)
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                $('#sub').each(function(i){
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    if( bottom_of_window > bottom_of_object/2){
+                        $(this).animate({'opacity':'1'},200);
+                    }
+                }); 
+            });
+        });
+
+        // 스크롤에 맞춰서 텍스트(#sub) 페이드인(오퍼시티 0에서 1로)
+        $(document).ready(function() {
+            $(window).scroll(function(){
+                $('#subcontent').each(function(i){
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    if( bottom_of_window > bottom_of_object/2 ){
+                        $(this).animate({'opacity':'1'},1400);
+                    }
+                }); 
+            });
+        });
+
+
+        // 이미지 슬라이더 (image2-7) 사진 배열로 2초 마다 이미지 변환, 슬라이더의 길이보다 커질 경우 1로 돌아오기
+        var slideIndex = 0;
+
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+        
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+        
+            setTimeout(showSlides, 2000); 
+        }
+
+
+
+
+
+
+
+
+      </script>
+      
+  </body>
+  </html>
